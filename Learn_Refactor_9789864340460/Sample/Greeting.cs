@@ -13,21 +13,23 @@ namespace Learn_Refactor_9789864340460.Sample
         /// </summary>
         private string GetGreeting(int hour)
         {
-            string greeting = "";
-            if (hour >= 6 && hour <= 12)
+            //將早、中、晚的方法移至不同的方法內，並定義要做的事情（IGreeting）
+            IGreeting[] greetingRules = new IGreeting[]
             {
-                greeting = "早安";
-            }
-            else if (hour >= 12 && hour <= 17)
+                new MoringGreeting(),
+                new AfternoonGreeting(),
+                new NightGreeting()
+            };
+
+            foreach (IGreeting greetingRule in greetingRules)
             {
-                greeting = "午安";
-            }
-            else
-            {
-                greeting = "晚安";
+                if (greetingRule.IsRight(hour))
+                {
+                    return greetingRule.GetGreeting();
+                }
             }
 
-            return greeting;
+            throw new Exception("無法取得問候語");
         }
 
         /// <summary>
