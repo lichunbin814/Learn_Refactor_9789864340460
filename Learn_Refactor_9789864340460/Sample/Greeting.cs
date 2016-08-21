@@ -11,7 +11,7 @@ namespace Learn_Refactor_9789864340460.Sample
         /// <summary>
         /// 取得問候語
         /// </summary>
-        private string GetGreeting(int hour)
+        private string GetGreeting(int hour, string user)
         {
             //將早、中、晚的方法移至不同的方法內，並定義要做的事情（IGreeting）
             IGreeting[] greetingRules = new IGreeting[]
@@ -25,7 +25,7 @@ namespace Learn_Refactor_9789864340460.Sample
             {
                 if (greetingRule.IsRight(hour))
                 {
-                    return greetingRule.GetGreeting();
+                    return greetingRule.GetGreeting(user);
                 }
             }
 
@@ -38,7 +38,7 @@ namespace Learn_Refactor_9789864340460.Sample
         public string GetGreeting(DateTime time, string user)
         {
             int hour = time.Hour;
-            string greeting = GetGreeting(hour);
+            string greeting = GetGreeting(hour, user);
 
             return string.Format("Hi, {0}. {1}", user, greeting);
         }

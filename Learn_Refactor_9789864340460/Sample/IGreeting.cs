@@ -10,6 +10,6 @@ namespace Learn_Refactor_9789864340460.Sample
     {
         bool IsRight(int hour);
 
-        string GetGreeting();
+        string GetGreeting(string user);
     }
 }
