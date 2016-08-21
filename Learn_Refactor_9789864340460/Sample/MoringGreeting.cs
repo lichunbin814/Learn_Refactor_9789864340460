@@ -8,9 +8,9 @@ namespace Learn_Refactor_9789864340460.Sample
 {
     public class MoringGreeting : BaseGreeting, IGreeting
     {
-        public string GetGreeting(string user)
+        protected override string GetGreeting()
         {
-            return "早安" + GetUnReadMailMsg(user);
+            return "早安";
         }
 
         public bool IsRight(int hour)

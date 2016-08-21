@@ -10,9 +10,9 @@ namespace Learn_Refactor_9789864340460.Sample
 
     public class AfternoonGreeting : BaseGreeting , IGreeting
     {
-        public string GetGreeting(string user)
+        protected override string GetGreeting()
         {
-            return "午安" + GetUnReadMailMsg(user);
+            return "午安";
         }
 
 

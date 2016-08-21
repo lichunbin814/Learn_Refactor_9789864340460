@@ -9,8 +9,15 @@ namespace Learn_Refactor_9789864340460.Sample
     /// <summary>
     /// 共用方法-問候語
     /// </summary>
-    public class BaseGreeting
+    public abstract class BaseGreeting
     {
+        protected abstract string GetGreeting();
+
+        public string GetGreeting(string user)
+        {
+            return "晚安" + GetUnReadMailMsg(user);
+        }
+
         /// <summary>
         /// 取得未讀Mail的提示
         /// </summary>
