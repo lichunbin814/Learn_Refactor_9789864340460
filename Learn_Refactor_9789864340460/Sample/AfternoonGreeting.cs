@@ -6,55 +6,17 @@ using System.Threading.Tasks;
 
 namespace Learn_Refactor_9789864340460.Sample
 {
-    public class AfternoonGreeting : IGreeting
+    
+
+    public class AfternoonGreeting : BaseGreeting , IGreeting
     {
         public string GetGreeting(string user)
         {
-            if (user == "王小明")
-            {
-                return "午安，" + GetUnReadMailMsg(user);
-            }
-            else if (user == "陳大華")
-            {
-                return "午安，" + GetUnReadMailMsg(user);
-            }
-            else
-            {
-                return "午安";
-            }
+            return "午安" + GetUnReadMailMsg(user);
         }
 
 
-        /// <summary>
-        /// 取得未讀Mail的提示
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        private string GetUnReadMailMsg(string user)
-        {
-            int unReadMailCount = GetUnReadMailCount(user);
-            return unReadMailCount == 0 ? "" : string.Format("您有{0}封未讀Mail", unReadMailCount);
-        }
-
-        /// <summary>
-        /// 取得未讀Mail的數量
-        /// </summary>        
-        private int GetUnReadMailCount(string user)
-        {
-            //此例省略跟外部資料介接的過程直接回傳特定的數量示意（實務上大多會使用資料庫）
-            if (user == "王小明")
-            {
-                return 999;
-            }
-            else if(user == "陳大華")
-            {
-                return 3;
-            }
-            else
-            {
-                return 0;
-            }        
-        }
+     
 
         public bool IsRight(int hour)
         {
