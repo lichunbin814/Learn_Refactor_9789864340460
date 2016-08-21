@@ -16,7 +16,7 @@ namespace Learn_Refactor_9789864340460.Sample
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        protected string GetUnReadMailMsg(string user)
+        public string GetUnReadMailMsg(string user)
         {
             int unReadMailCount = GetUnReadMailCount(user);
             return unReadMailCount == 0 ? "" : string.Format("，您有{0}封未讀Mail", unReadMailCount);

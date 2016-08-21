@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Learn_Refactor_9789864340460.Sample
 {
-    public class MoringGreeting : BaseGreeting, IGreeting
+    public class MoringGreeting :  IGreeting
     {
+        BaseGreeting baseGreeting = new BaseGreeting();
+
         public string GetGreeting(string user)
         {
-            return "早安" + GetUnReadMailMsg(user);
+            return "早安" + baseGreeting.GetUnReadMailMsg(user);
         }
 
         public bool IsRight(int hour)
